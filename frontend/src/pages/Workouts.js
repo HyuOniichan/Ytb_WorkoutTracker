@@ -18,10 +18,7 @@ const Workouts = () => {
     useEffect(() => {
         fetch('/workout')
             .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                setWorkouts(data)
-            })
+            .then(data => setWorkouts(data))
             .catch(err => console.log(err))
     }, [])
 

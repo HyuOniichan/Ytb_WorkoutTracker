@@ -1,9 +1,7 @@
 const WorkoutCard = ({ workout, id }) => {
 
     const handleDelete = () => {
-        fetch(`/workouts/${workout._id}`, {
-            method: 'DELETE'
-        })
+        fetch(`/workout/${workout._id}`, { method: 'DELETE' })
             .then(() => console.log(`Delete ${workout._id}`)) 
             .catch(() => alert('Delete failed'))
     }

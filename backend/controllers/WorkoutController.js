@@ -11,9 +11,7 @@ class WorkoutController {
 
     // [GET] /workout/:id 
     showOne(req, res, next) {
-        const { id } = req.params
-
-        Workout.findById(id)
+        Workout.findById(req.params.id)
             .then(data => res.json(data))
             .catch(next)
     }
@@ -27,7 +25,8 @@ class WorkoutController {
 
     // [DELETE]
     delete(req, res, next) {
-        Workout.findOneAndDelete({_id: req.params.id}) 
+        console.log('req.params.id: ', typeof req.params.id);
+        Workout.findByIdAndDelete(req.params.id) 
             .then(() => res.json({ done: 'ok' }))
             .catch(next)
     }
